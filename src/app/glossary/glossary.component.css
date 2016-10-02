@@ -1,0 +1,31 @@
+.term {
+   color: #000077;
+}
+
+.term:hover {
+   color: #000066;
+   background-color: #eeeeee;
+}
+
+.term--selected {
+   background: #dddddd;
+   font-weight: bold;
+}
+
+.terms {
+   cursor: pointer;
+}
+
+.selectedterm {
+   position: fixed;
+   left: 28%;
+   top: 30px;
+}
+
+.selectedterm--title {
+   color: #8888bb;
+}
+
+.selectedterm--desc {
+   color: #7777bb;
+}

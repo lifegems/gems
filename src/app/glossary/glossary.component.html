@@ -1,0 +1,12 @@
+<ul class="list-group terms col-sm-3 navbar--separator">
+   <li class="list-group-item term" [class.term--selected]="term === selectedTerm" *ngFor="let term of terms" (click)="selectTerm(term)">{{ term.name }}</li>
+</ul>
+
+<div class="navbar--separator selectedterm" *ngIf="selectedTerm">
+   <h4 class="selectedterm--title">{{ selectedTerm.name }}</h4>
+   <p class="selectedterm--desc">{{ selectedTerm.description }}</p>
+</div>
+
+<div class="navbar--separator selectedterm" *ngIf="!selectedTerm">
+   <p class="selectedterm--desc">Please select a term from the list on the left.</p>
+</div>
