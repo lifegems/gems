@@ -50,8 +50,16 @@ const aTerms: TopicContainer[] = [
     description: "A sense of right or wrong that we have inside of us. It can stop us from doing wrong things, and it can make us do good things"
   },
   {
+    name: "Courting",
+    description: "The time that a couple use to get to know each other to decide if they should marry"
+  },
+  {
     name: "Covenant",
     description: "A serious promise or agreement"
+  },
+  {
+    name: "Counsel",
+    description: "Advice or instruction from the Bible"
   },
   {
     name: "Disfellowship",
@@ -86,8 +94,16 @@ const aTerms: TopicContainer[] = [
     description: "Someone who is imperfect makes mistakes, does things wrong"
   },
   {
+    name: "The issue of Jehovah’s sovereignty",
+    description: "The question of whether Jehovah has the right to rule"
+  },
+  {
     name: "Kohathite Levite",
     description: "Levite who served at the tabernacle. The Kohathites had the responsibility of carrying the ark of the covenant"
+  },
+  {
+    name: "Laws",
+    description: "Rules in the Bible that tell us what God says is right and wrong"
   },
   {
     name: "Literal",
@@ -102,12 +118,28 @@ const aTerms: TopicContainer[] = [
     description: "A meek person is gentle and patient. He accepts instructions and waits for Jehovah to act. He does not get angry easily"
   },
   {
+    name: "Mourning ones",
+    description: "Those who are sad or depressed or who are suffering"
+  },
+  {
+    name: "Negative emotions",
+    description: "Feelings such as fear, anxiety, or discouragement"
+  },
+  {
     name: "Nephilim",
     description: "Nephilim (Genesis 6:4): The children from wicked angels and women"
   },
   {
     name: "Perceptive powers",
     description: "Perceptive powers (Hebrews 5:14): The ability to think carefully about things and then choose between right and wrong"
+  },
+  {
+    name: "Prejudice",
+    description: "Unfair or unjust treatment"
+  },
+  {
+    name: "Principles",
+    description: "Basic truths from the Bible that help us to make good decisions"
   },
   {
     name: "Ransom",
@@ -138,8 +170,20 @@ const aTerms: TopicContainer[] = [
     description: "A job or employment"
   },
   {
+    name: "Sexual immorality",
+    description: "Breaking God’s laws about sexual relations"
+  },
+  {
+    name: "Sympathy",
+    description: "Feeling sorry for those who suffer"
+  },
+  {
     name: "Tabernacle",
     description: "The tent used for worship in Israel. It was taken from place to place when the nation moved"
+  },
+  {
+    name: "Trial",
+    description: "Suffering, tribulation, a difficult situation that tests a person’s faith"
   },
   {
     name: "Tribe of Judah",
