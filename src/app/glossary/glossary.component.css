@@ -7,6 +7,19 @@
    background-color: #eeeeee;
 }
 
+.term--new {
+   background-color: #eeeeff;
+}
+
+.term--new:hover {
+   background-color: #BAE5FF;
+}
+
+.term--new--close {
+   padding-bottom: 10px;
+   color: #88CCFF;
+}
+
 .term--selected {
    background: #dddddd;
    font-weight: bold;
@@ -28,4 +41,11 @@
 
 .selectedterm--desc {
    color: #7777bb;
+}
+
+.lower-right {
+   display: none;
+   position: fixed;
+   top: 65%;
+   left: 75%;
 }

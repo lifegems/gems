@@ -1,4 +1,19 @@
 <ul class="list-group terms col-md-3 col-xs-12 navbar--separator">
+   <li class="list-group-item" *ngIf="!isNewTermCollapsed">
+      <div class="term--new--close pull-xs-right" (click)="isNewTermCollapsed = !isNewTermCollapsed"><span class="fa fa-close fa-lg"></span><br></div>
+      <form>
+         <div class="form-group">
+            <input class="form-control" #term placeholder="New Term">
+            <textarea class="form-control" #def placeholder="Term Definition"></textarea>
+            <button class="btn btn-primary" (click)="addNewTerm(term.value, def.value)">Add Term</button>
+         </div>
+      </form>
+   </li>
+   <li class="list-group-item term--new" *ngIf="isNewTermCollapsed" (click)="isNewTermCollapsed = !isNewTermCollapsed">
+      <span class="fa fa-plus"></span> Add New Term
+   </li>
+
+   <!-- List all terms here -->
    <li class="list-group-item term" [class.term--selected]="term === selectedTerm" *ngFor="let term of terms" (click)="selectTerm(term)">{{ term.name }}</li>
 </ul>
 
