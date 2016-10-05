@@ -14,10 +14,11 @@ export class TermsService {
   constructor(private http: Http) { }
 
   addTerm(strTerm, strDefinition): Observable<TopicContainer[]> {
-    let body = JSON.stringify([{
-      name: strTerm,
-      description: strDefinition
-    }]);
+    let body = JSON.stringify({
+      "name": strTerm,
+      "description": strDefinition
+    });
+    console.log(body);
     let headers = new Headers({'Content-Type': 'application/json'});
     let options = new RequestOptions({ headers: headers });
 

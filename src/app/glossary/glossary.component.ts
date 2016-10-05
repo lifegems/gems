@@ -5,6 +5,8 @@ import { TermsService } from './terms.service';
 
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 
+let _ = require('underscore');
+
 @Component({
   selector: 'app-glossary',
   templateUrl: './glossary.component.html',
@@ -24,7 +26,9 @@ export class GlossaryComponent implements OnInit {
 
    initTerms() {
       this.termsService.listAllTerms().subscribe(
-         terms => this.terms = terms,
+         (terms) => {
+            this.terms = _.sortBy(terms, 'name');
+         },
          err => console.log(err)
       ); 
    }
@@ -34,9 +38,12 @@ export class GlossaryComponent implements OnInit {
    }
 
    addNewTerm(strNewTerm, strNewDef) {
-      this.termsService.addTerm(strNewTerm, strNewDef);
+      this.termsService.addTerm(strNewTerm, strNewDef).subscribe(
+         terms => console.log(terms),
+         err => console.log(err)
+      );
       this.isNewTermCollapsed = true;
-      // this.initTerms();
+      this.initTerms();
    }
 
 }
