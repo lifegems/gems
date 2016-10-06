@@ -25,7 +25,7 @@ export class GlossaryComponent implements OnInit {
    }
 
    initTerms() {
-      this.termsService.listAllTerms().subscribe(
+      this.termsService.listTerms().subscribe(
          (terms) => {
             this.terms = _.sortBy(terms, 'name');
          },
