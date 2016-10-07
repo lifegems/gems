@@ -14,6 +14,7 @@ let _ = require('underscore');
   providers: [TermsService]
 })
 export class GlossaryComponent implements OnInit {
+   private termsCache: TopicContainer[];
    private terms: TopicContainer[];
    private selectedTerm: TopicContainer;
    isNewTermCollapsed: boolean = true;
@@ -28,6 +29,7 @@ export class GlossaryComponent implements OnInit {
       this.termsService.listTerms().subscribe(
          (terms) => {
             this.terms = _.sortBy(terms, 'name');
+            this.termsCache = this.terms;
          },
          err => console.log(err)
       ); 
@@ -44,6 +46,16 @@ export class GlossaryComponent implements OnInit {
       );
       this.isNewTermCollapsed = true;
       this.initTerms();
+   }
+
+   searchTerm(strValue) {
+      if (strValue === "") {
+         this.terms = this.termsCache;
+      } else {
+         this.terms = _.filter(this.termsCache, (term) => {
+            return term.name.toUpperCase().indexOf(strValue.toUpperCase()) > -1;
+         });
+      }
    }
 
 }

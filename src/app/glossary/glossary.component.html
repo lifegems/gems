@@ -5,18 +5,12 @@
 </div>
  -->
 <div class="navbar--separator hidden-md-up">
-   <li class="list-group-item" *ngIf="!isNewTermCollapsed">
-      <div class="term--new--close pull-xs-right" (click)="isNewTermCollapsed = !isNewTermCollapsed"><span class="fa fa-close fa-lg"></span></div><p class="h5">Add New Term</p>
-      
-      <div class="form-group">
-         <input class="form-control" #term placeholder="New Term">
-         <textarea class="form-control" #def placeholder="Term Definition"></textarea>
-         <button class="btn btn-primary" (click)="addNewTerm(term.value, def.value)">Add Term</button>
-      </div>
+   <!-- Search all terms -->
+   <li class="list-group-item">
+      <input class="form-control" #search (keyup)="searchTerm(search.value)" placeholder="Filter Terms">
    </li>
-   <li class="list-group-item term--new" *ngIf="isNewTermCollapsed" (click)="isNewTermCollapsed = !isNewTermCollapsed">
-      <span class="fa fa-plus"></span> Add New Term
-   </li>
+
+   <!-- List all terms -->
    <ngb-accordion [closeOthers]="true">
       <ngb-panel class="selectedterm--title" title="{{ term.name }}" *ngFor="let term of terms">
          <template class="selectedterm--desc" ngbPanelContent>
@@ -24,10 +18,29 @@
          </template>
       </ngb-panel>
    </ngb-accordion>
+
+   <!-- Add new terms -->
+   <li class="list-group-item" *ngIf="!isNewTermCollapsed">
+      <div class="term--new--close pull-xs-right" (click)="isNewTermCollapsed = !isNewTermCollapsed"><span class="fa fa-close fa-lg"></span></div><p class="h5">Add New Term</p>
+      
+      <div class="form-group">
+         <input class="form-control" #term placeholder="New Term">
+         <textarea class="form-control" #def placeholder="Term Definition"></textarea>
+         <button class="btn btn-primary" (click)="addNewTerm(term.value, def.value)">Add Term</button>
+      </div>
+   </li>
+
+   <li class="list-group-item term--new" *ngIf="isNewTermCollapsed" (click)="isNewTermCollapsed = !isNewTermCollapsed">
+      <span class="fa fa-plus"></span> Add New Term
+   </li>
 </div>
 
 
 <ul class="list-group terms col-md-3 navbar--separator hidden-sm-down">
+   <!-- List all terms here -->
+   <li class="list-group-item term" [class.term--selected]="term === selectedTerm" *ngFor="let term of terms" (click)="selectTerm(term)">{{ term.name }}</li>
+
+   <!-- Add new term -->
    <li class="list-group-item" *ngIf="!isNewTermCollapsed">
       <div class="term--new--close pull-xs-right" (click)="isNewTermCollapsed = !isNewTermCollapsed"><span class="fa fa-close fa-lg"></span></div><p class="h5">Add New Term</p>
       
@@ -40,9 +53,6 @@
    <li class="list-group-item term--new" *ngIf="isNewTermCollapsed" (click)="isNewTermCollapsed = !isNewTermCollapsed">
       <span class="fa fa-plus"></span> Add New Term
    </li>
-
-   <!-- List all terms here -->
-   <li class="list-group-item term" [class.term--selected]="term === selectedTerm" *ngFor="let term of terms" (click)="selectTerm(term)">{{ term.name }}</li>
 </ul>
 
 <div class="navbar--separator selectedterm hidden-sm-down" *ngIf="selectedTerm">
