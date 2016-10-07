@@ -1,3 +1,9 @@
+<div class="navbar--separator hidden-md-up col-xs-12" *ngIf="selectedTerm">
+   <br><br>
+   <h4 class="selectedterm--title">{{ selectedTerm.name }}</h4>
+   <p class="selectedterm--desc">{{ selectedTerm.description }}</p>
+</div>
+
 <ul class="list-group terms col-md-3 col-xs-12 navbar--separator">
    <li class="list-group-item" *ngIf="!isNewTermCollapsed">
       <div class="term--new--close pull-xs-right" (click)="isNewTermCollapsed = !isNewTermCollapsed"><span class="fa fa-close fa-lg"></span></div><p class="h5">Add New Term</p>
@@ -16,12 +22,12 @@
    <li class="list-group-item term" [class.term--selected]="term === selectedTerm" *ngFor="let term of terms" (click)="selectTerm(term)">{{ term.name }}</li>
 </ul>
 
-<div class="navbar--separator selectedterm" *ngIf="selectedTerm">
+<div class="navbar--separator selectedterm hidden-sm-down" *ngIf="selectedTerm">
    <h4 class="selectedterm--title">{{ selectedTerm.name }}</h4>
    <p class="selectedterm--desc">{{ selectedTerm.description }}</p>
 </div>
 
-<div class="navbar--separator selectedterm" *ngIf="!selectedTerm">
+<div class="navbar--separator selectedterm hidden-sm-down" *ngIf="!selectedTerm">
    <h4 class="selectedterm--title">Some Expressions Explained</h4>
    <p class="selectedterm--desc">All words and phrases are direct quotes from The Watchtower (Simplified Edition).</p>
 </div>
