@@ -1,10 +1,33 @@
-<div class="navbar--separator hidden-md-up col-xs-12" *ngIf="selectedTerm">
+<!-- <div class="navbar--separator hidden-md-up col-xs-12" *ngIf="selectedTerm">
    <br><br>
    <h4 class="selectedterm--title">{{ selectedTerm.name }}</h4>
    <p class="selectedterm--desc">{{ selectedTerm.description }}</p>
 </div>
+ -->
+<div class="navbar--separator hidden-md-up">
+   <li class="list-group-item" *ngIf="!isNewTermCollapsed">
+      <div class="term--new--close pull-xs-right" (click)="isNewTermCollapsed = !isNewTermCollapsed"><span class="fa fa-close fa-lg"></span></div><p class="h5">Add New Term</p>
+      
+      <div class="form-group">
+         <input class="form-control" #term placeholder="New Term">
+         <textarea class="form-control" #def placeholder="Term Definition"></textarea>
+         <button class="btn btn-primary" (click)="addNewTerm(term.value, def.value)">Add Term</button>
+      </div>
+   </li>
+   <li class="list-group-item term--new" *ngIf="isNewTermCollapsed" (click)="isNewTermCollapsed = !isNewTermCollapsed">
+      <span class="fa fa-plus"></span> Add New Term
+   </li>
+   <ngb-accordion [closeOthers]="true">
+      <ngb-panel class="selectedterm--title" title="{{ term.name }}" *ngFor="let term of terms">
+         <template class="selectedterm--desc" ngbPanelContent>
+            {{ term.description }}
+         </template>
+      </ngb-panel>
+   </ngb-accordion>
+</div>
 
-<ul class="list-group terms col-md-3 col-xs-12 navbar--separator">
+
+<ul class="list-group terms col-md-3 navbar--separator hidden-sm-down">
    <li class="list-group-item" *ngIf="!isNewTermCollapsed">
       <div class="term--new--close pull-xs-right" (click)="isNewTermCollapsed = !isNewTermCollapsed"><span class="fa fa-close fa-lg"></span></div><p class="h5">Add New Term</p>
       
