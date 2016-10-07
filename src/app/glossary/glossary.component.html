@@ -7,7 +7,10 @@
 <div class="navbar--separator hidden-md-up">
    <!-- Search all terms -->
    <li class="list-group-item">
-      <input class="form-control" #search (keyup)="searchTerm(search.value)" placeholder="Filter Terms">
+      <div class="input-group">
+         <input class="form-control" #searchsm (keyup)="searchTerm(searchsm.value)" placeholder="Filter Terms">
+         <div class="input-group-addon" (click)="searchsm.value = ''"><span class="fa fa-close" (click)="searchTerm('')"></span></div>
+      </div>
    </li>
 
    <!-- List all terms -->
@@ -37,6 +40,14 @@
 
 
 <ul class="list-group terms col-md-3 navbar--separator hidden-sm-down">
+   <!-- Search all terms -->
+   <li class="list-group-item">
+      <div class="input-group">
+         <input class="form-control" #searchmd (keyup)="searchTerm(searchmd.value)" placeholder="Filter Terms">
+         <div class="input-group-addon" (click)="searchmd.value = ''"><span class="fa fa-close" (click)="searchTerm('')"></span></div>
+      </div>
+   </li>
+
    <!-- List all terms here -->
    <li class="list-group-item term" [class.term--selected]="term === selectedTerm" *ngFor="let term of terms" (click)="selectTerm(term)">{{ term.name }}</li>
 
