@@ -5,6 +5,21 @@
 </div>
  -->
 <div class="navbar--separator hidden-md-up">
+   <!-- Add new terms -->
+   <li class="list-group-item" *ngIf="!isNewTermCollapsed">
+      <div class="term--new--close pull-xs-right" (click)="isNewTermCollapsed = !isNewTermCollapsed"><span class="fa fa-close fa-lg"></span></div><p class="h5">Add New Term</p>
+      
+      <div class="form-group">
+         <input class="form-control" #term placeholder="New Term">
+         <textarea class="form-control" #def placeholder="Term Definition"></textarea>
+         <button class="btn btn-primary" (click)="addNewTerm(term.value, def.value)">Add Term</button>
+      </div>
+   </li>
+
+   <li class="list-group-item term--new" *ngIf="isNewTermCollapsed" (click)="isNewTermCollapsed = !isNewTermCollapsed">
+      <span class="fa fa-plus"></span> Add New Term
+   </li>
+   
    <!-- Search all terms -->
    <li class="list-group-item">
       <div class="input-group">
@@ -21,21 +36,6 @@
          </template>
       </ngb-panel>
    </ngb-accordion>
-
-   <!-- Add new terms -->
-   <li class="list-group-item" *ngIf="!isNewTermCollapsed">
-      <div class="term--new--close pull-xs-right" (click)="isNewTermCollapsed = !isNewTermCollapsed"><span class="fa fa-close fa-lg"></span></div><p class="h5">Add New Term</p>
-      
-      <div class="form-group">
-         <input class="form-control" #term placeholder="New Term">
-         <textarea class="form-control" #def placeholder="Term Definition"></textarea>
-         <button class="btn btn-primary" (click)="addNewTerm(term.value, def.value)">Add Term</button>
-      </div>
-   </li>
-
-   <li class="list-group-item term--new" *ngIf="isNewTermCollapsed" (click)="isNewTermCollapsed = !isNewTermCollapsed">
-      <span class="fa fa-plus"></span> Add New Term
-   </li>
 </div>
 
 
