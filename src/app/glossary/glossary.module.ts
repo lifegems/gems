@@ -4,12 +4,14 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { GlossaryComponent } from './glossary.component';
 
+import { BoldSearch } from './glossary.component';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     NgbModule
   ],
-  declarations: [GlossaryComponent]
+  declarations: [BoldSearch, GlossaryComponent]
 })
 export class GlossaryModule { }
