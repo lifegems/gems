@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { GlossaryComponent } from './glossary.component';
 
-import { BoldSearch } from './glossary.component';
+import { BoldSearch } from './shared/bold-search.pipe';
 
 @NgModule({
   imports: [
