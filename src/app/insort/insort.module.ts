@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { InsortComponent } from './insort.component';
 // import { InsortRouting } from './insort.routes';
+import { InsightService } from './insight.service';
 
 @NgModule({
   imports: [
@@ -11,6 +12,7 @@ import { InsortComponent } from './insort.component';
   exports: [
    InsortComponent
   ],
-  declarations: [InsortComponent]
+  declarations: [InsortComponent],
+  providers: [InsightService]
 })
 export class InsortModule { }

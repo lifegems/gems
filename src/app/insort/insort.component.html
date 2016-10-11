@@ -1,3 +1,3 @@
-<p>
-  insort works!
+<p *ngIf="articles">
+   <a *ngFor="let article of articles" href="{{ article.href }}">{{ article.name }}<br></a>
 </p>
