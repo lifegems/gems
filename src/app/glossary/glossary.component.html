@@ -32,7 +32,7 @@
    <ngb-accordion [closeOthers]="true">
       <ngb-panel *ngFor="let term of terms">
          <template class="selectedterm--title" ngbPanelTitle>
-            <p [innerHTML]="term.name | boldSearch:searchsm.value"></p>
+            <span [innerHTML]="term.name | boldSearch:searchsm.value"></span>
          </template>
          <template class="selectedterm--desc" ngbPanelContent>
             {{ term.description }}
@@ -67,7 +67,7 @@
 
    <!-- List all terms here -->
    <li class="list-group-item term" [class.term--selected]="term === selectedTerm" *ngFor="let term of terms" (click)="selectTerm(term)">
-      <p [innerHTML]="term.name | boldSearch:searchmd.value"></p>
+      <span [innerHTML]="term.name | boldSearch:searchmd.value"></span>
    </li>
 </ul>
 
