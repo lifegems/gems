@@ -5,15 +5,18 @@ import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
-@Injectable()
-export class InsightService {
-  // private URL: string = "https://api.mlab.com/api/1/databases/lifegems/collections/terms?apiKey=CY73dQUZRrVfx3SWzj77PZ8QbCk-6ilZ";
-  private URL: string = "https://173.62.120.170:443/api/it";
+import { ApiService } from './../shared/api.service';
 
-  constructor(private http: Http) { }
+@Injectable()
+export class InsightService extends ApiService {
+  private GET_URL: string = this.URL + 'it';
+
+  constructor(private http: Http) {
+    super();
+  }
 
   listArticles(): Observable<any[]> {
-    return this.http.get(this.URL)
+    return this.http.get(this.GET_URL)
       .map((res: Response) => res.json())
       .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
