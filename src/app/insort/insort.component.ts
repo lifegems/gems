@@ -17,7 +17,7 @@ export class InsortComponent implements OnInit {
    ngOnInit() {
       this.itService.listArticles().subscribe(
          (article) => {
-            this.articles = _.sortBy(article, 'name');]
+            this.articles = _.sortBy(article, 'name');
          },
          err => console.log(err)
       ); 
