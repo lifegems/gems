@@ -5,6 +5,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { InsortComponent } from './insort/insort.component';
 import { GlossaryComponent } from './glossary/glossary.component';
+import { NotibleComponent } from './notible/notible.component';
 
 const BaseRoutes: Routes = [
    {
@@ -18,6 +19,10 @@ const BaseRoutes: Routes = [
    {
       path: 'glossary',
       component: GlossaryComponent
+   },
+   {
+      path: 'notible',
+      component: NotibleComponent
    },
    {
       path: "**",

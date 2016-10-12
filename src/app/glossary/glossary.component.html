@@ -1,10 +1,10 @@
-<!-- <div class="navbar--separator hidden-md-up col-xs-12" *ngIf="selectedTerm">
+<!-- <div class="hidden-md-up col-xs-12" *ngIf="selectedTerm">
    <br><br>
    <h4 class="selectedterm--title">{{ selectedTerm.name }}</h4>
    <p class="selectedterm--desc">{{ selectedTerm.description }}</p>
 </div>
  -->
-<div class="navbar--separator hidden-md-up">
+<div class="hidden-md-up">
    <!-- Add new terms -->
    <li class="list-group-item" *ngIf="!isNewTermCollapsed">
       <div class="term--new--close pull-xs-right" (click)="isNewTermCollapsed = !isNewTermCollapsed"><span class="fa fa-close fa-lg"></span></div><p class="h5">Add New Term</p>
@@ -42,7 +42,7 @@
 </div>
 
 
-<ul class="list-group terms col-md-3 navbar--separator hidden-sm-down">
+<ul class="list-group terms col-md-3 hidden-sm-down">
    <!-- Add new term -->
    <li class="list-group-item" *ngIf="!isNewTermCollapsed">
       <div class="term--new--close pull-xs-right" (click)="isNewTermCollapsed = !isNewTermCollapsed"><span class="fa fa-close fa-lg"></span></div><p class="h5">Add New Term</p>
@@ -71,12 +71,12 @@
    </li>
 </ul>
 
-<div class="navbar--separator selectedterm hidden-sm-down" *ngIf="selectedTerm">
+<div class="selectedterm hidden-sm-down" *ngIf="selectedTerm">
    <h4 class="selectedterm--title">{{ selectedTerm.name }}</h4>
    <p class="selectedterm--desc">{{ selectedTerm.description }}</p>
 </div>
 
-<div class="navbar--separator selectedterm hidden-sm-down" *ngIf="!selectedTerm">
+<div class="selectedterm hidden-sm-down" *ngIf="!selectedTerm">
    <h4 class="selectedterm--title">Some Expressions Explained</h4>
    <p class="selectedterm--desc">All words and phrases are direct quotes from The Watchtower (Simplified Edition).</p>
 </div>

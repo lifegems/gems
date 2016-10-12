@@ -11,6 +11,9 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { InsortModule } from './insort/insort.module';
 import { GlossaryModule } from './glossary/glossary.module';
+import { NotibleModule } from './notible/notible.module';
+// Services
+import { BibleService } from './shared/bible.service';
 // Routing
 import { Routing, RoutingProviders } from './base.routes';
 
@@ -27,10 +30,12 @@ import { Routing, RoutingProviders } from './base.routes';
     Routing,
     DashboardModule,
     InsortModule,
-    GlossaryModule
+    GlossaryModule,
+    NotibleModule
   ],
   providers: [
-    RoutingProviders
+    RoutingProviders,
+    BibleService
   ],
   bootstrap: [AppComponent]
 })

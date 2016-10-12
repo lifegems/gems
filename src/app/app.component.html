@@ -1,9 +1,10 @@
 <nav class="navbar navbar-fixed-top navbar-light bg-faded">
 <a class="navbar-brand" [routerLink]="['']">Life Gems</a>
   <div class="nav navbar-nav">
+    <a class="nav-item nav-link" [routerLink]="['notible']" routerLinkActive="active">Notible</a>
     <a class="nav-item nav-link" [routerLink]="['glossary']" routerLinkActive="active">Glossary</a>
     <a class="nav-item nav-link" [routerLink]="['insort']" routerLinkActive="active">Insort</a>
-    <a class="nav-item nav-link" [routerLink]="['asd']" routerLinkActive="active">About</a>
   </div>
 </nav>
+<div class="navbar--separator"></div>
 <router-outlet></router-outlet>

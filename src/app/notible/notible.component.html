@@ -1,0 +1,12 @@
+<select [(ngModel)]="selectedBook" name="booklist" (ngModelChange)="showChapters(selectedBook.chapterCount)">
+   <option [ngValue]="book" *ngFor="let book of books">{{ book.standardName }}</option>
+</select>
+
+<div *ngIf="selectedBook">
+   <select [(ngModel)]="selectedChapter" name="booklist" (ngModelChange)="showText(selectedBook, selectedChapter)">
+      <option *ngFor="let chapter of chapters">{{ chapter }}</option>
+   </select>
+</div>
+
+<div *ngIf="selectedBook && selectedChapter" [innerHtml]="bibleText">
+</div>
