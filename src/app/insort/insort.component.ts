@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { InsightService } from './insight.service';
+import { ListContainerComponent } from './../shared/list-container/list-container.component';
 
 var _ = require('underscore');
 

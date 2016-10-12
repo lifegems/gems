@@ -1,0 +1,18 @@
+<span [ngSwitch]="type">
+   <!-- Accordian style -->
+   <ngb-accordion *ngSwitchCase="'ACCD'" [closeOthers]="true">
+      <ngb-panel *ngFor="let item of list">
+         <template class="selectedterm--title" ngbPanelTitle>
+            <span>{{ item.name }}</span>
+         </template>
+         <template class="selectedterm--desc" ngbPanelContent>
+            {{ item.href }}
+         </template>
+      </ngb-panel>
+   </ngb-accordion>
+
+   <!-- Plan link style -->
+   <span *ngSwitchDefault>
+      <a *ngFor="let item of list" href="{{ item.href }}" target="_onblank">{{ item.name }}<br></a>
+   </span>
+</span>
