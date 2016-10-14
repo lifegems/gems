@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CommonModule } from '@angular/common';
 import { NotibleComponent } from './notible.component';
 import { FormsModule } from '@angular/forms';
@@ -6,7 +7,8 @@ import { FormsModule } from '@angular/forms';
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    NgbModule
   ],
   declarations: [NotibleComponent]
 })

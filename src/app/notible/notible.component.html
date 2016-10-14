@@ -1,20 +1,27 @@
 <div class="col-md-3">
-   <div class="form-inline">
-   <div class="form-group">
-      <select class="form-control" [(ngModel)]="selectedBook" name="booklist" (ngModelChange)="showChapters(selectedBook.chapterCount)">
+   <div (click)="isNavCollapsed = !isNavCollapsed" class="col-md-12">
+      <br>
+      <span class="fa fa-border fa-2x" [class.fa-plus]="isNavCollapsed" [class.fa-minus]="!isNavCollapsed"></span>
+   </div>
+
+   <div class="form-group" [ngbCollapse]="isNavCollapsed">
+      <select class="form-control" [(ngModel)]="selectedBook" name="booklist" (ngModelChange)="showText(selectedBook, 1)">
          <option [ngValue]="book" *ngFor="let book of books">{{ book.standardName }}</option>
       </select>
 
-      <span>
-         <select class="form-control" [(ngModel)]="selectedChapter" name="booklist" (ngModelChange)="showText(selectedBook, selectedChapter)">
-            <option *ngFor="let chapter of chapters">{{ chapter }}</option>
-         </select>
-      </span>
-   </div>
+      <div class="chapter--box">
+         <a class="btn btn-secondary chapter--btn col-xs-2" *ngFor="let chapter of chapters" [class.chapter--btn--active]="chapter === selectedChapter" (click)="showText(selectedBook, chapter)">{{ chapter }}</a>
+      </div>
    </div>
 </div>
 <div class="col-md-6">
-   <div *ngIf="selectedBook && selectedChapter" [innerHtml]="bibleText"></div>
+   <p class="text-xs-center" *ngIf="isLoading">
+      <span class="fa fa-spinner fa-spin fa-4x"></span>
+      <br>
+      <span class="h3">Loading...</span>
+   </p>
+   <p class="h2 text-xs-center" *ngIf="!isLoading && selectedBook && selectedChapter" [innerHtml]="chapterTitle"></p>
+   <div *ngIf="!isLoading && selectedBook && selectedChapter" [innerHtml]="bibleText"></div>
 </div>
 
 

@@ -1,0 +1,12 @@
+.chapter--box {
+   margin-top: 10px;
+}
+
+.chapter--btn {
+   margin: 2px;
+}
+
+.chapter--btn--active {
+   background-color: #6666EE;
+   color: #ffffff;
+}
