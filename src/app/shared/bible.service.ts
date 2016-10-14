@@ -5,22 +5,23 @@ import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
+import { ApiService } from './api.service';
+
 @Injectable()
-export class BibleService {
-   private BASE_URL = "https://www.jw.org/en/publications/bible/nwt/books/json/html/";
+export class BibleService extends ApiService {
 
    constructor(private http: Http) {
-
+      super();
    }
 
    listBooks(): Observable<any> {
-      return this.http.get(this.BASE_URL + "?callback=?")
+      return this.http.get(this.URL + "bible")
          .map((res: Response) => res.json())
          .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
    }
 
    getBibleChapterText(strRange): Observable<any> {
-      return this.http.get(this.BASE_URL + strRange + "?callback=?")
+      return this.http.get(this.URL + "bible/" + strRange)
          .map((res: Response) => res.json())
          .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
    }
