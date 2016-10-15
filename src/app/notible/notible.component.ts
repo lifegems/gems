@@ -57,6 +57,8 @@ export class NotibleComponent implements OnInit {
       let newChapters = this.getChapterArray(book.chapterCount)
       if (newChapters !== this.chapters) {
          this.chapters = newChapters;
+      } else {
+         this.isNavCollapsed = true;
       }
       this.selectedChapter = strChapter;
       var bookNumber = this.books.indexOf(book) + 1;
