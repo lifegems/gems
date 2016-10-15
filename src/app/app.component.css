@@ -1,3 +1,13 @@
 .navbar--separator {
    padding-top: 55px;
 }
+
+nav {
+   background-color: #D4EFFE;
+   color: #3D5E72;
+}
+
+nav * {
+   background-color: #D4EFFE;
+   color: #3D5E72;
+}

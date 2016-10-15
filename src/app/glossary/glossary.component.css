@@ -30,9 +30,9 @@
 }
 
 .selectedterm {
-   position: fixed;
+   /*position: fixed;
    left: 28%;
-   top: 30px;
+   top: 30px;*/
 }
 
 .selectedterm--title {

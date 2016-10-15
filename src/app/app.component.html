@@ -1,10 +1,24 @@
 <nav class="navbar navbar-fixed-top navbar-light bg-faded">
-<a class="navbar-brand" [routerLink]="['']">Life Gems</a>
-  <div class="nav navbar-nav">
-    <a class="nav-item nav-link" [routerLink]="['notible']" routerLinkActive="active">Notible</a>
-    <a class="nav-item nav-link" [routerLink]="['glossary']" routerLinkActive="active">Glossary</a>
-    <a class="nav-item nav-link" [routerLink]="['insort']" routerLinkActive="active">Insort</a>
-  </div>
+   <button type="button" class="navbar-toggler hidden-sm-up" (click)="isMenuCollapsed = !isMenuCollapsed">
+      &#9776;
+   </button>
+   <div class="navbar-toggleable-xs" [ngbCollapse]="isMenuCollapsed">
+      <a class="navbar-brand" [routerLink]="['']">Life Gems</a>
+      <ul class="nav navbar-nav">
+         <li class="nav-item">
+            <a class="nav-link"><span class="fa"></span></a>
+         </li>
+         <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" [routerLink]="['notible']" (click)="isMenuCollapsed = true">Notible</a>
+         </li>
+         <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" [routerLink]="['glossary']" (click)="isMenuCollapsed = true">Glossary</a>
+         </li>
+         <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" [routerLink]="['insort']" (click)="isMenuCollapsed = true">Insort</a>
+         </li>
+      </ul>
+   </div>
 </nav>
 <div class="navbar--separator"></div>
 <router-outlet></router-outlet>
