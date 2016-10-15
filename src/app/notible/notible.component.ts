@@ -52,6 +52,7 @@ export class NotibleComponent implements OnInit {
 
    showText(book, strChapter) {
       this.bookName = book.standardName;
+      this.selectedBook = book;
       this.isLoading = true;
       let newChapters = this.getChapterArray(book.chapterCount)
       if (newChapters !== this.chapters) {
