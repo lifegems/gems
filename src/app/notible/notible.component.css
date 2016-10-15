@@ -3,10 +3,18 @@
 }
 
 .chapter--btn {
-   margin: 2px;
+   /*margin: 2px;*/
 }
 
 .chapter--btn--active {
    background-color: #6666EE;
    color: #ffffff;
+}
+
+.reader--box {
+   clear: left;
+}
+
+.collapse--btn {
+   margin-top: 10px;
 }

@@ -12,6 +12,7 @@ export class NotibleComponent implements OnInit {
    private books = [];
    private chapters = [];
 
+   private bookName: string = "Select Bible Book";
    private selectedBook;
    private selectedChapter;
    
@@ -19,7 +20,7 @@ export class NotibleComponent implements OnInit {
    private chapterTitle;
    private isLoading: boolean;
 
-   private isNavCollapsed: boolean = false;
+   private isNavCollapsed: boolean = true;
 
    constructor(private bibleService: BibleService) { }
 
@@ -50,6 +51,7 @@ export class NotibleComponent implements OnInit {
    }
 
    showText(book, strChapter) {
+      this.bookName = book.standardName;
       this.isLoading = true;
       let newChapters = this.getChapterArray(book.chapterCount)
       if (newChapters !== this.chapters) {
