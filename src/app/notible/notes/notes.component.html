@@ -1,0 +1,14 @@
+<span [ngSwitch]="type">
+   <div *ngSwitchCase="'MEDIA'">
+      <div *ngFor="let note of notes" class="row">
+         <h4>{{ note.refs }}</h4>
+         <img src="{{ note.href }}" class="img-thumbnail col-xs-4">
+      </div>
+   </div>
+   <div *ngSwitchCase="'NOTES'">
+      My Notes
+   </div>
+   <div *ngSwitchCase="'XREFS'">
+      Cross References
+   </div>
+</span>

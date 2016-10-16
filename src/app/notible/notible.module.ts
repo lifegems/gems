@@ -3,6 +3,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CommonModule } from '@angular/common';
 import { NotibleComponent } from './notible.component';
 import { FormsModule } from '@angular/forms';
+import { NotesComponent } from './notes/notes.component';
+
+import { NotesService } from './notes/notes.component';
 
 @NgModule({
   imports: [
@@ -10,6 +13,7 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
     NgbModule
   ],
-  declarations: [NotibleComponent]
+  declarations: [NotibleComponent, NotesComponent],
+  providers: [NotesService]
 })
 export class NotibleModule { }
