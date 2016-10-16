@@ -1,3 +1,10 @@
+<li class="list-group-item">
+   <div class="input-group">
+      <input class="form-control" #searchsm (keyup)="searchList(searchsm.value)" placeholder="Filter Terms">
+      <div class="input-group-addon" (click)="searchsm.value = ''"><span class="fa fa-close" (click)="searchList('')"></span></div>
+   </div>
+</li>
+
 <span [ngSwitch]="type">
    <!-- Accordian style -->
    <ngb-accordion *ngSwitchCase="'ACCD'" [closeOthers]="true">
@@ -10,6 +17,11 @@
          </template>
       </ngb-panel>
    </ngb-accordion>
+
+   <!-- List Group style -->
+   <span class="list-group" *ngSwitchCase="'LIST'">
+      <a class="list-group-item" *ngFor="let item of list" href="{{ item.href }}" target="_onblank">{{ item.name }}</a>
+   </span>
 
    <!-- Plan link style -->
    <span *ngSwitchDefault>
