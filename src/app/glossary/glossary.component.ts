@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-
-import { TopicContainer } from './../shared/topic-container';
-import { TermsService } from './terms.service';
-
-import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
-
 let _ = require('underscore');
+
+import { TermsService } from './terms.service';
+import { ListContainerComponent } from './../shared/list-container/list-container.component';
 
 @Component({
   selector: 'app-glossary',
@@ -14,12 +11,10 @@ let _ = require('underscore');
   providers: [TermsService]
 })
 export class GlossaryComponent implements OnInit {
-   private termsCache: TopicContainer[];
-   private terms: TopicContainer[];
-   private selectedTerm: TopicContainer;
    isNewTermCollapsed: boolean = true;
+   private terms: Array<any>;
 
-   constructor(private termsService: TermsService, private modal: NgbModal) { }
+   constructor(private termsService: TermsService) { }
 
    ngOnInit() {
       this.initTerms();
@@ -28,15 +23,16 @@ export class GlossaryComponent implements OnInit {
    initTerms() {
       this.termsService.listTerms().subscribe(
          (terms) => {
-            this.terms = _.sortBy(terms, 'name');
-            this.termsCache = this.terms;
+            // this.terms = _.sortBy(terms, 'name');
+            this.terms = _.map(terms, (term) => {
+               return {
+                  name: term.name,
+                  href: term.description
+               };
+            });
          },
          err => console.log(err)
       ); 
-   }
-
-   selectTerm(term: TopicContainer) {
-      this.selectedTerm = term;
    }
 
    addNewTerm(strNewTerm, strNewDef) {
@@ -46,15 +42,5 @@ export class GlossaryComponent implements OnInit {
       );
       this.isNewTermCollapsed = true;
       this.initTerms();
-   }
-
-   searchTerm(strValue) {
-      if (strValue === "") {
-         this.terms = this.termsCache;
-      } else {
-         this.terms = _.filter(this.termsCache, (term) => {
-            return term.name.toUpperCase().indexOf(strValue.toUpperCase()) > -1;
-         });
-      }
    }
 }

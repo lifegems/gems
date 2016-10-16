@@ -1,84 +1,17 @@
-<!-- <div class="hidden-md-up col-xs-12" *ngIf="selectedTerm">
-   <br><br>
-   <h4 class="selectedterm--title">{{ selectedTerm.name }}</h4>
-   <p class="selectedterm--desc">{{ selectedTerm.description }}</p>
-</div>
- -->
-<div>
-<div class="hidden-md-up">
-   <!-- Add new terms -->
-   <li class="list-group-item" *ngIf="!isNewTermCollapsed">
-      <div class="term--new--close pull-xs-right" (click)="isNewTermCollapsed = !isNewTermCollapsed"><span class="fa fa-close fa-lg"></span></div><p class="h5">Add New Term</p>
-      
-      <div class="form-group">
-         <input class="form-control" #term placeholder="New Term">
-         <textarea class="form-control" #def placeholder="Term Definition"></textarea>
-         <button class="btn btn-primary" (click)="addNewTerm(term.value, def.value)">Add Term</button>
-      </div>
-   </li>
+<li class="list-group-item term--new" *ngIf="isNewTermCollapsed" (click)="isNewTermCollapsed = !isNewTermCollapsed">
+   <span class="fa fa-plus"></span> Add New Term
+</li>
 
-   <li class="list-group-item term--new" *ngIf="isNewTermCollapsed" (click)="isNewTermCollapsed = !isNewTermCollapsed">
-      <span class="fa fa-plus"></span> Add New Term
-   </li>
+<li class="list-group-item" *ngIf="!isNewTermCollapsed">
+   <div class="term--new--close pull-xs-right" (click)="isNewTermCollapsed = !isNewTermCollapsed"><span class="fa fa-close fa-lg"></span></div><p class="h5">Add New Term</p>
    
-   <!-- Search all terms -->
-   <li class="list-group-item">
-      <div class="input-group">
-         <input class="form-control" #searchsm (keyup)="searchTerm(searchsm.value)" placeholder="Filter Terms">
-         <div class="input-group-addon" (click)="searchsm.value = ''"><span class="fa fa-close" (click)="searchTerm('')"></span></div>
-      </div>
-   </li>
+   <div class="form-group">
+      <input class="form-control" #term placeholder="New Term">
+      <textarea class="form-control" #def placeholder="Term Definition"></textarea>
+      <button class="btn btn-primary" (click)="addNewTerm(term.value, def.value)">Add Term</button>
+   </div>
+</li>
 
-   <!-- List all terms -->
-   <ngb-accordion [closeOthers]="true">
-      <ngb-panel *ngFor="let term of terms">
-         <template class="selectedterm--title" ngbPanelTitle>
-            <span [innerHTML]="term.name | boldSearch:searchsm.value"></span>
-         </template>
-         <template class="selectedterm--desc" ngbPanelContent>
-            {{ term.description }}
-         </template>
-      </ngb-panel>
-   </ngb-accordion>
-</div>
-
-
-<ul class="list-group terms col-md-3 hidden-sm-down">
-   <!-- Add new term -->
-   <li class="list-group-item" *ngIf="!isNewTermCollapsed">
-      <div class="term--new--close pull-xs-right" (click)="isNewTermCollapsed = !isNewTermCollapsed"><span class="fa fa-close fa-lg"></span></div><p class="h5">Add New Term</p>
-      
-      <div class="form-group">
-         <input class="form-control" #term placeholder="New Term">
-         <textarea class="form-control" #def placeholder="Term Definition"></textarea>
-         <button class="btn btn-primary" (click)="addNewTerm(term.value, def.value)">Add Term</button>
-      </div>
-   </li>
-   <li class="list-group-item term--new" *ngIf="isNewTermCollapsed" (click)="isNewTermCollapsed = !isNewTermCollapsed">
-      <span class="fa fa-plus"></span> Add New Term
-   </li>
-
-   <!-- Search all terms -->
-   <li class="list-group-item">
-      <div class="input-group">
-         <input class="form-control" #searchmd (keyup)="searchTerm(searchmd.value)" placeholder="Filter Terms">
-         <div class="input-group-addon" (click)="searchmd.value = ''"><span class="fa fa-close" (click)="searchTerm('')"></span></div>
-      </div>
-   </li>
-
-   <!-- List all terms here -->
-   <li class="list-group-item term" [class.term--selected]="term === selectedTerm" *ngFor="let term of terms" (click)="selectTerm(term)">
-      <span [innerHTML]="term.name | boldSearch:searchmd.value"></span>
-   </li>
-</ul>
-
-<div class="selectedterm hidden-sm-down" *ngIf="selectedTerm">
-   <h4 class="selectedterm--title">{{ selectedTerm.name }}</h4>
-   <p class="selectedterm--desc">{{ selectedTerm.description }}</p>
-</div>
-
-<div class="selectedterm hidden-sm-down" *ngIf="!selectedTerm">
-   <h4 class="selectedterm--title">Some Expressions Explained</h4>
-   <p class="selectedterm--desc">All words and phrases are direct quotes from The Watchtower (Simplified Edition).</p>
-</div>
-</div>
+<p *ngIf="terms">
+   <app-list-container [list]="terms" [type]="'ACCD'"></app-list-container>
+</p>

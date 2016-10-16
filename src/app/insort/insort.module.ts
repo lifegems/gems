@@ -1,23 +1,23 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { CommonModule } from '@angular/common';
 
 import { InsortComponent } from './insort.component';
 // import { InsortRouting } from './insort.routes';
 import { InsightService } from './insight.service';
-import { ListContainerComponent } from './../shared/list-container/list-container.component';
+import { SharedModule } from './../shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    NgbModule
+    NgbModule,
+    SharedModule
   ],
   exports: [
-   InsortComponent
+    InsortComponent
   ],
   declarations: [
-    InsortComponent,
-    ListContainerComponent
+    InsortComponent
   ],
   providers: [InsightService]
 })
