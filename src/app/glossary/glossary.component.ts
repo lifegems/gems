@@ -24,12 +24,12 @@ export class GlossaryComponent implements OnInit {
       this.termsService.listTerms().subscribe(
          (terms) => {
             // this.terms = _.sortBy(terms, 'name');
-            this.terms = _.map(terms, (term) => {
+            this.terms = _.sortBy(_.map(terms, (term) => {
                return {
                   name: term.name,
                   href: term.description
                };
-            });
+            }), 'name');
          },
          err => console.log(err)
       ); 
