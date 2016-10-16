@@ -4,6 +4,9 @@
       <div class="input-group-addon" (click)="searchsm.value = ''"><span class="fa fa-close" (click)="searchList('')"></span></div>
    </div>
 </li>
+<li class="list-group-item">
+   <div class="text-xs-center text-muted">Items Found: {{ list.length }}</div>
+</li>
 
 <span [ngSwitch]="type">
    <!-- Accordian style -->
