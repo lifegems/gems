@@ -63,7 +63,7 @@ export class NotibleComponent implements OnInit {
       this.selectedChapter = strChapter;
       var bookNumber = this.books.indexOf(book) + 1;
       var strRange = this.bibleService.formatRange(bookNumber, parseInt(strChapter))
-      this.bibleService.getBibleChapterText(strRange).subscribe(
+      this.bibleService.getBibleChapterText(bookNumber, parseInt(strChapter)).subscribe(
          (text) => {
             this.chapterTitle = text.ranges[strRange].citation;
             this.bibleText = text.ranges[strRange].html;

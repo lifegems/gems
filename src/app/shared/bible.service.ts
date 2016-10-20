@@ -20,8 +20,8 @@ export class BibleService extends ApiService {
          .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
    }
 
-   getBibleChapterText(strRange): Observable<any> {
-      return this.http.get(this.URL + "bible/" + strRange)
+   getBibleChapterText(intBook, intChapter): Observable<any> {
+      return this.http.get(this.URL + "bible/" + intBook + "/" + intChapter)
          .map((res: Response) => res.json())
          .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
    }
