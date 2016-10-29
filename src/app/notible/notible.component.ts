@@ -23,6 +23,10 @@ export class NotibleComponent implements OnInit {
 
    private isNavCollapsed: boolean = true;
 
+   // add new note data
+   private newNoteType: string = 'NOTES';
+   private newNoteVerse: number = 1;
+
    constructor(private bibleService: BibleService, private notesService: NotesService) { }
 
    ngOnInit() {
