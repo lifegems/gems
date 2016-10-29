@@ -16,5 +16,5 @@ export class Note {
    public xtype?: string;
 
    // MEDIA
-   public url?: string;
+   public mediaurl?: string;
 }

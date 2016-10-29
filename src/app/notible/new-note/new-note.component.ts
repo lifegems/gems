@@ -20,7 +20,14 @@ export class NewNoteComponent implements OnInit {
 
    // NOTES
    private newNoteRefTitle: string;
-   private newNoteRefUrl: string;
+   private newNoteRefUrl:   string;
+
+   // MEDIA
+   private newNoteMediaUrl: string;
+
+   // XREFS
+   private newNoteXRef:  string;
+   private newNoteXType: string = 'GEN';
 
    constructor() { }
 
@@ -37,11 +44,20 @@ export class NewNoteComponent implements OnInit {
          description: this.newNoteDesc
       };
 
-      if (this.newNoteType === 'NOTES') {
+      if (this.newNoteType === 'NOTES' || this.newNoteType === 'MEDIA') {
          NewNote.pubrefs = [{
             title: this.newNoteRefTitle,
             url:   this.newNoteRefUrl
          }];
+      }
+
+      if (this.newNoteType === 'MEDIA') {
+         NewNote.mediaurl = this.newNoteMediaUrl;
+      }
+
+      if (this.newNoteType === 'XREFS') {
+         NewNote.xref  = this.newNoteXRef;
+         NewNote.xtype = this.newNoteXType;
       }
 
       console.log(NewNote);

@@ -38,30 +38,31 @@
    <span [ngSwitch]="newNoteType">
       <div *ngSwitchCase="'NOTES'">
          <div class="form-group">
-            <label>Enter Reference Name</label>
-            <input name="noteRefTitle" [(ngModel)]='newNoteRefTitle' type="text" class="form-control">
-            <label>Enter Reference URL</label>
-            <input name="noteRefUrl" [(ngModel)]='newNoteRefUrl' type="text" class="form-control">
+            <label>Enter References</label>
+            <input name="noteRefTitle" [(ngModel)]='newNoteRefTitle' type="text" class="form-control" placeholder="Reference Title">
+            <input name="noteRefUrl" [(ngModel)]='newNoteRefUrl' type="text" class="form-control" placeholder="Reference URL">
          </div>
       </div>
       <div *ngSwitchCase="'MEDIA'">
          <div class="form-group">
             <label>Media URL</label>
-            <input type="text" class="form-control">
-            <label>References</label>
-            <input type="text" class="form-control">
+            <input type="text" name="noteMediaUrl" [(ngModel)]='newNoteMediaUrl' class="form-control" placeholder="e.g. http://wol.jw.org/en/wol/mp/r1/lp-e/w13/2013/563">
+         </div>
+         <div class="form-group">
+            <label>Enter References</label>
+            <input name="noteRefTitle" [(ngModel)]='newNoteRefTitle' type="text" class="form-control" placeholder="Reference Title">
+            <input name="noteRefUrl" [(ngModel)]='newNoteRefUrl' type="text" class="form-control" placeholder="Reference URL">
          </div>
       </div>
       <div *ngSwitchCase="'XREFS'">
          <div class="form-group">
-            <label>Cross Reference Type</label>
-            <select class="form-control">
-               <option>General</option>
-               <option>Parallel Account</option>
-               <option>Fulfilled Prophecy</option>
+            <label>Cross Reference</label>
+            <select [(ngModel)]='newNoteXType' name="noteXType" class="form-control">
+               <option value="GEN">General</option>
+               <option value="PAR">Parallel Account</option>
+               <option value="PCY">Fulfilled Prophecy</option>
             </select>
-            <label>Cross Reference Location</label>
-            <input type="text" class="form-control" placeholder="choose bible verse">
+            <input [(ngModel)]='newNoteXRef' name="noteXRef" type="text" class="form-control" placeholder="Bible verse">
          </div>
       </div>
    </span>
