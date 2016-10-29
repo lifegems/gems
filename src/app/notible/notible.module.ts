@@ -5,7 +5,7 @@ import { NotibleComponent } from './notible.component';
 import { FormsModule } from '@angular/forms';
 import { NotesComponent } from './notes/notes.component';
 
-import { NotesService } from './notes/notes.component';
+import { NotesService } from './notes/notes.service';
 
 @NgModule({
   imports: [

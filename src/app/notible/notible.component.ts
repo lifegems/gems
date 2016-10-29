@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BibleService } from './../shared/bible.service';
+import { NotesService } from './notes/notes.service';
 
 var _ = require('underscore');
 
@@ -22,7 +23,7 @@ export class NotibleComponent implements OnInit {
 
    private isNavCollapsed: boolean = true;
 
-   constructor(private bibleService: BibleService) { }
+   constructor(private bibleService: BibleService, private notesService: NotesService) { }
 
    ngOnInit() {
       this.isLoading = true;
@@ -48,6 +49,18 @@ export class NotibleComponent implements OnInit {
          i = i + 1;
       }
       return aChapters;
+   }
+
+   createNote(title, desc, href) {
+      let body = JSON.stringify({
+         name: title,
+         desc: desc,
+         href: href
+      });
+      this.notesService.addNote(body).subscribe(
+         terms => console.log(terms),
+         err => console.log(err)
+      );
    }
 
    showText(book, strChapter) {

@@ -35,7 +35,21 @@
 
 
 <div class="col-md-3">
-   <app-notes [range]="2001001-2001999" [type]="'MEDIA'"></app-notes>
-   <app-notes [range]="2001001-2001999" [type]="'XREFS'"></app-notes>
-   <app-notes [range]="2001001-2001999" [type]="'NOTES'"></app-notes>
+   <ngb-tabset>
+      <ngb-tab title="Media">
+         <template ngbTabContent>
+            <app-notes [booknumber]="2" [chapter]="2" [type]="'MEDIA'"></app-notes>
+         </template>
+      </ngb-tab>
+      <ngb-tab title="Cross">
+         <template ngbTabContent>
+            <app-notes [booknumber]="2" [chapter]="2" [type]="'XREFS'"></app-notes>
+         </template>
+      </ngb-tab>
+      <ngb-tab title="Notes">
+         <template ngbTabContent>
+            <app-notes [booknumber]="2" [chapter]="2" [type]="'NOTES'"></app-notes>
+         </template>
+      </ngb-tab>
+   </ngb-tabset>
 </div>
