@@ -11,6 +11,9 @@ import { NotesService } from './../notes/notes.service';
 export class NewNoteComponent implements OnInit {
    @Input() book: number;
    @Input() chapter: number;
+   @Input() verses: number;
+
+   private aVss: Array<number>;
 
    // add new note data
    private newNoteType: string = 'NOTES';
@@ -32,6 +35,7 @@ export class NewNoteComponent implements OnInit {
    constructor(private notesService: NotesService) { }
 
    ngOnInit() {
+      this.aVss = this.getChapterArray(this.verses);
    }
 
    createNote() {
@@ -65,6 +69,18 @@ export class NewNoteComponent implements OnInit {
          terms => console.log(terms),
          err => console.log(err)
       );
+   }
+
+
+   getChapterArray(intChapterCount): Array<number> {
+      let chapters: number = parseInt(intChapterCount);
+      let i: number = 1;
+      let aChapters: Array<number> = [];
+      while (i <= chapters) {
+         aChapters.push(i);
+         i = i + 1;
+      }
+      return aChapters;
    }
 
 }

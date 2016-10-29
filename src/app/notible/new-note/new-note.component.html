@@ -4,9 +4,9 @@
       <label>Select Verse</label><br>
       <div class="btn-group">
          <div ngbRadioGroup [(ngModel)]="newNoteVerse" name="radioVs">
-            <label class="btn btn-secondary" *ngFor="let vs of [1,2,3]">
-               <input [value]="vs" type="radio">{{vs}}
-            </label>
+            <select [(ngModel)]='newNoteVerse' name="noteVerse" class="form-control">
+               <option *ngFor="let vs of aVss" [value]="vs">{{vs}}</option>
+            </select>
          </div>
       </div>
    </div>
