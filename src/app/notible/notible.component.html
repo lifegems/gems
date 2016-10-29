@@ -33,7 +33,6 @@
    </div>
 </div>
 
-
 <div class="col-md-3">
    <ngb-tabset>
       <ngb-tab>
@@ -65,36 +64,7 @@
             <span class="fa fa-pencil"></span>
          </template>
          <template ngbTabContent>
-            <form>
-               <h4 class="text-xs-center">Add New Note</h4>
-               <div class="form-group">
-                  <label>Select Verse</label><br>
-                  <div class="btn-group">
-                     <div ngbRadioGroup [(ngModel)]="newNoteVerse" name="radioVs">
-                        <label class="btn btn-secondary" *ngFor="let vs of [1,2,3]">
-                           <input [value]="vs" type="radio">{{vs}}
-                        </label>
-                     </div>
-                  </div>
-               </div>
-               <div class="form-group">
-                  <label>Select Note Type</label><br>
-                  <div class="btn-group">
-                     <div [(ngModel)]="newNoteType" ngbRadioGroup name="radioType">
-                        <label class="btn btn-secondary">
-                           <input type="radio" [value]="'NOTES'"><span class="fa fa-paperclip"></span>
-                        </label>
-                        <label class="btn btn-secondary">
-                           <input type="radio" [value]="'MEDIA'"><span class="fa fa-photo"></span>
-                        </label>
-                        <label class="btn btn-secondary">
-                           <input type="radio" [value]="'XREFS'"><span class="fa fa-arrows-alt"></span>
-                        </label>
-                     </div>
-                  </div>
-               </div>
-               <button class="btn btn-primary">Create Note</button>
-            </form>
+            <app-new-note [book]="2" [chapter]="3"></app-new-note>
          </template>
       </ngb-tab>
    </ngb-tabset>

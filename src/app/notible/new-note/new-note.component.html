@@ -1,0 +1,70 @@
+<form>
+   <h4 class="text-xs-center">Add New Note</h4>
+   <div class="form-group">
+      <label>Select Verse</label><br>
+      <div class="btn-group">
+         <div ngbRadioGroup [(ngModel)]="newNoteVerse" name="radioVs">
+            <label class="btn btn-secondary" *ngFor="let vs of [1,2,3]">
+               <input [value]="vs" type="radio">{{vs}}
+            </label>
+         </div>
+      </div>
+   </div>
+   <div class="form-group">
+      <label>Select Note Type</label><br>
+      <div class="btn-group">
+         <div [(ngModel)]="newNoteType" ngbRadioGroup name="radioType">
+            <label class="btn btn-secondary">
+               <input type="radio" [value]="'NOTES'"><span class="fa fa-paperclip"></span>
+            </label>
+            <label class="btn btn-secondary">
+               <input type="radio" [value]="'MEDIA'"><span class="fa fa-photo"></span>
+            </label>
+            <label class="btn btn-secondary">
+               <input type="radio" [value]="'XREFS'"><span class="fa fa-arrows-alt"></span>
+            </label>
+         </div>
+      </div>
+   </div>
+   <div class="form-group">
+      <label>Enter Title</label>
+      <input name="noteTitle" [(ngModel)]='newNoteTitle' type="text" class="form-control">
+   </div>
+   <div class="form-group">
+      <label>Enter Description</label>
+      <textarea name="noteDesc" [(ngModel)]='newNoteDesc' type="text" class="form-control"></textarea>
+   </div>
+
+   <span [ngSwitch]="newNoteType">
+      <div *ngSwitchCase="'NOTES'">
+         <div class="form-group">
+            <label>Enter Reference Name</label>
+            <input name="noteRefTitle" [(ngModel)]='newNoteRefTitle' type="text" class="form-control">
+            <label>Enter Reference URL</label>
+            <input name="noteRefUrl" [(ngModel)]='newNoteRefUrl' type="text" class="form-control">
+         </div>
+      </div>
+      <div *ngSwitchCase="'MEDIA'">
+         <div class="form-group">
+            <label>Media URL</label>
+            <input type="text" class="form-control">
+            <label>References</label>
+            <input type="text" class="form-control">
+         </div>
+      </div>
+      <div *ngSwitchCase="'XREFS'">
+         <div class="form-group">
+            <label>Cross Reference Type</label>
+            <select class="form-control">
+               <option>General</option>
+               <option>Parallel Account</option>
+               <option>Fulfilled Prophecy</option>
+            </select>
+            <label>Cross Reference Location</label>
+            <input type="text" class="form-control" placeholder="choose bible verse">
+         </div>
+      </div>
+   </span>
+
+   <button class="btn btn-primary" (click)="createNote()">Create Note</button>
+</form>

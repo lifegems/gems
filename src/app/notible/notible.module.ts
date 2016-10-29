@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { NotesComponent } from './notes/notes.component';
 
 import { NotesService } from './notes/notes.service';
+import { NewNoteComponent } from './new-note/new-note.component';
 
 @NgModule({
   imports: [
@@ -13,7 +14,7 @@ import { NotesService } from './notes/notes.service';
     FormsModule,
     NgbModule
   ],
-  declarations: [NotibleComponent, NotesComponent],
+  declarations: [NotibleComponent, NotesComponent, NewNoteComponent],
   providers: [NotesService]
 })
 export class NotibleModule { }
