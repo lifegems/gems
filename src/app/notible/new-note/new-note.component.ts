@@ -29,7 +29,7 @@ export class NewNoteComponent implements OnInit {
    private newNoteXRef:  string;
    private newNoteXType: string = 'GEN';
 
-   constructor() { }
+   constructor(private notesService: NotesService) { }
 
    ngOnInit() {
    }
@@ -60,7 +60,11 @@ export class NewNoteComponent implements OnInit {
          NewNote.xtype = this.newNoteXType;
       }
 
-      console.log(NewNote);
+      let body = JSON.stringify(NewNote);
+      this.notesService.addNote(body).subscribe(
+         terms => console.log(terms),
+         err => console.log(err)
+      );
    }
 
 }
