@@ -1,0 +1,61 @@
+.chapter {
+   &--box {
+      margin-top: 10px;
+   }
+
+   &--btn--active {
+      background-color: #6666EE;
+      color: #ffffff;
+   }
+}
+
+.reader--box {
+   clear: left;
+}
+
+.collapse--btn {
+   margin-top: 10px;
+}
+
+.navbar--separator {
+   padding-top: 55px !important;
+}
+
+.bible--nav {
+   border-bottom: 1px solid lightblue;
+   padding: 5px;
+   background-color: white;
+   z-index: -1;
+}
+
+.notes {
+   &--nav {
+      z-index: 2;
+      cursor: pointer;
+      margin-top: 250px;
+      margin-right: 0px;
+      float: right;
+      position: fixed;
+      padding: 5px 10px;
+      border: 1px solid lightblue;
+   }
+
+   &--box {
+      z-index: 1;
+      background-color: #ffeeee;
+      position: fixed;
+      margin-left: 20px;
+      border-top: 2px solid lightgray;
+      border-left: 2px solid lightgray;
+      height: 100%;
+      width: 100%;
+      overflow-y: scroll;
+      &--bar {
+         border-bottom: 0.5px solid gray;
+      }
+      &--close {
+         border-right: 0.5px solid gray;
+         padding: 5px 10px;
+      }
+   }
+}

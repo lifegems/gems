@@ -8,7 +8,7 @@
    </div>
    <div *ngSwitchCase="'MEDIA'">
       <hr>
-      <h4>Media - Ezekiel 6</h4>
+      <h4>Media - {{book.standardName}} {{chapter}}</h4>
       <div *ngFor="let note of notes">
          <div class="thumbnail" (click)="open(content, note)">
             <img src="{{note.url}}" alt="Image" />

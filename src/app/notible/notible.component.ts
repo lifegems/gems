@@ -7,7 +7,7 @@ var _ = require('underscore');
 @Component({
    selector: 'app-notible',
    templateUrl: './notible.component.html',
-   styleUrls: ['./notible.component.css']
+   styleUrls: ['./notible.component.scss']
 })
 export class NotibleComponent implements OnInit {
    private books = [];

@@ -63,7 +63,7 @@
             <span class="fa fa-paperclip"></span>
          </template>
          <template ngbTabContent>
-            <app-notes [booknumber]="2" [chapter]="2" [type]="'NOTES'"></app-notes>
+            <app-notes [book]="selectedBook" [chapter]="selectedChapter" [type]="'NOTES'"></app-notes>
          </template>
       </ngb-tab>
       <ngb-tab>
@@ -71,7 +71,7 @@
             <span class="fa fa-photo"></span>
          </template>
          <template ngbTabContent>
-            <app-notes [booknumber]="2" [chapter]="2" [type]="'MEDIA'"></app-notes>
+            <app-notes [book]="selectedBook" [chapter]="selectedChapter" [type]="'MEDIA'"></app-notes>
          </template>
       </ngb-tab>
       <ngb-tab>
@@ -79,7 +79,7 @@
             <span class="fa fa-arrows-alt"></span>
          </template>
          <template ngbTabContent>
-            <app-notes [booknumber]="2" [chapter]="2" [type]="'XREFS'"></app-notes>
+            <app-notes [book]="selectedBook" [chapter]="selectedChapter" [type]="'XREFS'"></app-notes>
          </template>
       </ngb-tab>
       <ngb-tab>
@@ -87,7 +87,7 @@
             <span class="fa fa-pencil"></span>
          </template>
          <template ngbTabContent>
-            <app-new-note [book]="2" [chapter]="3" [verses]="60"></app-new-note>
+            <app-new-note [book]="selectedBook" [chapter]="selectedChapter" [verses]="60"></app-new-note>
          </template>
       </ngb-tab>
    </ngb-tabset>
@@ -99,7 +99,7 @@
             <span class="fa fa-paperclip"></span>
          </template>
          <template ngbTabContent>
-            <app-notes [booknumber]="2" [chapter]="2" [type]="'NOTES'"></app-notes>
+            <app-notes [book]="selectedBook" [chapter]="selectedChapter" [type]="'NOTES'"></app-notes>
          </template>
       </ngb-tab>
       <ngb-tab>
@@ -107,7 +107,7 @@
             <span class="fa fa-photo"></span>
          </template>
          <template ngbTabContent>
-            <app-notes [booknumber]="2" [chapter]="2" [type]="'MEDIA'"></app-notes>
+            <app-notes [book]="selectedBook" [chapter]="selectedChapter" [type]="'MEDIA'"></app-notes>
          </template>
       </ngb-tab>
       <ngb-tab>
@@ -115,7 +115,7 @@
             <span class="fa fa-arrows-alt"></span>
          </template>
          <template ngbTabContent>
-            <app-notes [booknumber]="2" [chapter]="2" [type]="'XREFS'"></app-notes>
+            <app-notes [book]="selectedBook" [chapter]="selectedChapter" [type]="'XREFS'"></app-notes>
          </template>
       </ngb-tab>
       <ngb-tab>
@@ -123,7 +123,7 @@
             <span class="fa fa-pencil"></span>
          </template>
          <template ngbTabContent>
-            <app-new-note [book]="2" [chapter]="3" [verses]="60"></app-new-note>
+            <app-new-note [book]="selectedBook" [chapter]="selectedChapter" [verses]="60"></app-new-note>
          </template>
       </ngb-tab>
    </ngb-tabset>

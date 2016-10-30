@@ -12,7 +12,7 @@ let _ = require('underscore');
    styleUrls: ['./notes.component.css']
 })
 export class NotesComponent implements OnInit {
-   @Input() private booknumber: number;
+   @Input() private book;
    @Input() private chapter: number;
    @Input() private type: string;
    closeResult: string;
@@ -30,7 +30,7 @@ export class NotesComponent implements OnInit {
          console.log(note.type);
          return note.type === this.type;
       });
-      this.notesService.listNotes(this.booknumber, this.chapter).subscribe((notes) => {
+      this.notesService.listNotes(this.book.chapterCount, this.chapter).subscribe((notes) => {
             this.notes = _.filter(notes, (note) => {return note.type === this.type;});
          }, (err) => console.log(err)
       );
