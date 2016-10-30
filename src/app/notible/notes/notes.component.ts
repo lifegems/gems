@@ -128,6 +128,15 @@ export class NotesComponent implements OnInit {
             url: 'http://wol.jw.org/en/wol/mp/r1/lp-e/w13/2013/1053'
          },
          {
+            book: 20,
+            chapter: 1,
+            verse: 1,
+            type: 'MEDIA',
+            title: 'Highlights of Proverbs',
+            description: "Highlights of the book of Proverbs",
+            url: 'https://assetsnffrgf-a.akamaihd.net/assets/m/1001071940/univ/art/1001071940_univ_sqr_xl.jpg'
+         },
+         {
             book: 6,
             chapter: 17,
             verse: 1,
