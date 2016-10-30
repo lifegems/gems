@@ -29,11 +29,10 @@ export class NotesComponent implements OnInit {
          console.log(note.type);
          return note.type === this.type;
       });
-      console.log(this.notes);
-      // this.notesService.listNotes(this.booknumber, this.chapter).subscribe((notes) => {
-      //       this.notes = _.filter(notes, (note) => {return note.type === this.type;});
-      //    }, (err) => console.log(err)
-      // );
+      this.notesService.listNotes(this.booknumber, this.chapter).subscribe((notes) => {
+            this.notes = _.filter(notes, (note) => {return note.type === this.type;});
+         }, (err) => console.log(err)
+      );
    }
 
 
@@ -86,11 +85,47 @@ export class NotesComponent implements OnInit {
          {
             book: 19,
             chapter: 6,
+            verse: 10,
+            type: 'MEDIA',
+            title: "Great Spiritual Temple",
+            description: "The organization has always been on the move and Jehovah has wanted us to know it!",
+            url: 'https://assetsnffrgf-a.akamaihd.net/assets/m/1102014250/univ/art/1102014250_univ_cnt_1_xl.jpg'
+         },
+         {
+            book: 19,
+            chapter: 6,
             verse: 23,
             type: 'MEDIA',
             title: 'Four Horsemen of Revelation',
             description: 'The ride of the four horsemen pictures the turning of events during the last days.',
             url: 'https://assetsnffrgf-a.akamaihd.net/assets/m/402014047/univ/art/402014047_univ_cnt_2_xl.jpg'
+         },
+         {
+            book: 19,
+            chapter: 6,
+            verse: 23,
+            type: 'MEDIA',
+            title: 'Valley of the Dry Bones pt.1',
+            description: "The dry bones symbolize the captivity of Jehovah's people. It began in the second century.",
+            url: 'https://assetsnffrgf-a.akamaihd.net/assets/m/2016203/E/art/2016203_E_cnt_1_xl.jpg'
+         },
+         {
+            book: 19,
+            chapter: 6,
+            verse: 23,
+            type: 'MEDIA',
+            title: 'Valley of the Dry Bones pt.2',
+            description: "The dry bones symbolize the captivity of Jehovah's people. This ended in 1919.",
+            url: 'https://assetsnffrgf-a.akamaihd.net/assets/m/2016203/E/art/2016203_E_cnt_2_xl.jpg'
+         },
+         {
+            book: 40,
+            chapter: 13,
+            verse: 30,
+            type: 'MEDIA',
+            title: 'Wheat and the Weeds',
+            description: "The wheat and the weeds are similar to the dry bones.",
+            url: 'http://wol.jw.org/en/wol/mp/r1/lp-e/w13/2013/1053'
          },
          {
             book: 6,
