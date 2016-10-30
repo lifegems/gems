@@ -1,11 +1,47 @@
 <span [ngSwitch]="type">
-   <div *ngSwitchCase="'MEDIA'">
-      Pics and video
-   </div>
    <div *ngSwitchCase="'NOTES'">
-      My Notes
+      <div *ngFor="let note of notes">
+         <hr>
+         <h4>Genesis {{note.chapter}}:{{note.verse}}</h4>
+         <div><b>{{note.title}}</b> {{note.description}}</div>
+      </div>
+   </div>
+   <div *ngSwitchCase="'MEDIA'">
+      <hr>
+      <h4>Media - Ezekiel 6</h4>
+      <div *ngFor="let note of notes">
+         <div class="thumbnail" (click)="open(content, note)">
+            <img src="{{note.url}}" alt="Image" />
+         </div>
+      </div>
    </div>
    <div *ngSwitchCase="'XREFS'">
-      Cross References
+      <div *ngFor="let note of notes">
+         <hr>
+         <h4>Joshua {{note.chapter}}:{{note.verse}}</h4>
+         <div class="text-muted"><i>{{note.xtype}}</i></div>
+         <div><b>{{note.title}}</b></div>
+         <div>{{note.description}}</div>
+      </div>
    </div>
 </span>
+
+<!-- Modal to display media -->
+<template #content let-c="close" let-d="dismiss">
+   <div class="modal-header">
+      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+         <span aria-hidden="true">&times;</span>
+      </button>
+      <h4 class="modal-title">{{selectedNote.title}}</h4>
+   </div>
+   <div class="modal-body">
+      <img src="{{selectedNote.url}}" class="img-fluid" alt="Responsive image">
+      <p>{{selectedNote.description}}</p>
+   </div>
+   <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
+   </div>
+</template>
+
+<!-- <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button> -->
+<template ngbModalContainer></template>
