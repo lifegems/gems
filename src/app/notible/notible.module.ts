@@ -12,7 +12,7 @@ import { NewNoteComponent } from './new-note/new-note.component';
   imports: [
     CommonModule,
     FormsModule,
-    NgbModule
+    NgbModule.forRoot()
   ],
   declarations: [NotibleComponent, NotesComponent, NewNoteComponent],
   providers: [NotesService]
