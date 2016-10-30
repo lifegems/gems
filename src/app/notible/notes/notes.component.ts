@@ -16,6 +16,7 @@ export class NotesComponent implements OnInit {
    @Input() private chapter: number;
    @Input() private type: string;
    closeResult: string;
+   isNotesNavCollapsed: boolean = true;
 
    private notes: Array<Note>;
    private selectedNote: Note;

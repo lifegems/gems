@@ -1,4 +1,21 @@
-<div class="col-md-3">
+<!-- Bible Navigation -->
+<div class="hidden-lg-up pos-f-t navbar--separator bible--nav mx-auto">
+   <select>
+      <option>Genesis</option>
+      <option>Exodus</option>
+      <option>Leviticus</option>
+   </select>
+   <select>
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+      <option>6</option>
+   </select>
+   <button class="btn btn-secondary">Go</button>
+</div>
+<div class="col-md-3 hidden-md-down">
    <div class="form-group" [ngbCollapse]="isNavCollapsed">
       <div ngbDropdown>
          <button class="btn btn-outline-primary w-100" id="dropdownMenu1" ngbDropdownToggle>{{ bookName }}</button>
@@ -16,6 +33,8 @@
       <span class="fa" [class.fa-chevron-up]="!isNavCollapsed" [class.fa-chevron-down]="isNavCollapsed"></span>
    </button>
 </div>
+
+<!-- Bible Reader -->
 <div class="col-md-6">
    <div class="reader--box">
       <p class="text-xs-center" *ngIf="isLoading">
@@ -28,7 +47,52 @@
    </div>
 </div>
 
-<div class="col-md-3">
+<!-- Notes Screen -->
+<div class="hidden-lg-up notes--nav" *ngIf="!isNotesNavCollapsed" (click)="isNotesNavCollapsed = !isNotesNavCollapsed">
+   <span class="fa fa-pencil"></span>
+</div>
+<div *ngIf="isNotesNavCollapsed" class="notes--box">
+   <div class="notes--box--bar">
+      <div class="notes--box--close" (click)="isNotesNavCollapsed = !isNotesNavCollapsed">
+         <span class="fa fa-close"></span>
+      </div>
+   </div>
+   <ngb-tabset>
+      <ngb-tab>
+         <template ngbTabTitle>
+            <span class="fa fa-paperclip"></span>
+         </template>
+         <template ngbTabContent>
+            <app-notes [booknumber]="2" [chapter]="2" [type]="'NOTES'"></app-notes>
+         </template>
+      </ngb-tab>
+      <ngb-tab>
+         <template ngbTabTitle>
+            <span class="fa fa-photo"></span>
+         </template>
+         <template ngbTabContent>
+            <app-notes [booknumber]="2" [chapter]="2" [type]="'MEDIA'"></app-notes>
+         </template>
+      </ngb-tab>
+      <ngb-tab>
+         <template ngbTabTitle>
+            <span class="fa fa-arrows-alt"></span>
+         </template>
+         <template ngbTabContent>
+            <app-notes [booknumber]="2" [chapter]="2" [type]="'XREFS'"></app-notes>
+         </template>
+      </ngb-tab>
+      <ngb-tab>
+         <template ngbTabTitle>
+            <span class="fa fa-pencil"></span>
+         </template>
+         <template ngbTabContent>
+            <app-new-note [book]="2" [chapter]="3" [verses]="60"></app-new-note>
+         </template>
+      </ngb-tab>
+   </ngb-tabset>
+</div>
+<div class="col-md-3 hidden-md-down">
    <ngb-tabset>
       <ngb-tab>
          <template ngbTabTitle>
