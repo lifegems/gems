@@ -11,8 +11,8 @@
       </select>
    </div>
 </div>
-<div class="col-md-3 hidden-md-down">
-   <div class="form-group" [ngbCollapse]="isNavCollapsed">
+<div class="col-md-3 bible--nav--desktop hidden-md-down">
+   <div class="form-group">
       <div ngbDropdown>
          <button class="btn btn-outline-primary w-100" id="dropdownMenu1" ngbDropdownToggle>{{ bookName }}</button>
          <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
@@ -25,27 +25,26 @@
       </div>
 
    </div>
-   <button type="button" class="btn btn-outline-secondary w-100 collapse--btn" (click)="isNavCollapsed = !isNavCollapsed">
-      <span class="fa" [class.fa-chevron-up]="!isNavCollapsed" [class.fa-chevron-down]="isNavCollapsed"></span>
-   </button>
 </div>
 
 <!-- Bible Reader -->
-<div class="col-md-6 reader--box">
-   <p class="text-xs-center" *ngIf="isLoading">
-      <span class="fa fa-spinner fa-spin fa-4x"></span>
-      <br>
-      <span class="h3">Loading...</span>
-   </p>
-   <p class="h2 text-xs-center" *ngIf="!isLoading && selectedBook && selectedChapter" [innerHtml]="chapterTitle"></p>
-   <div *ngIf="!isLoading && selectedBook && selectedChapter" [innerHtml]="bibleText"></div>
-   <div class="row">
-      <div class="col-xs-2 chap chap--prev" [routerLink]="['/notible', book, chapter - 1]">
-         <span class="fa fa-chevron-left"></span>
-      </div>
-      <div class="col-xs-8"></div>
-      <div class="col-xs-2 chap chap--next" [routerLink]="['/notible', book, chapter + 1]">
-         <span class="fa fa-chevron-right"></span>
+<div class="col-md-6 mgt">
+   <div class="reader--box">
+      <p class="text-xs-center" *ngIf="isLoading">
+         <span class="fa fa-spinner fa-spin fa-4x"></span>
+         <br>
+         <span class="h3">Loading...</span>
+      </p>
+      <p class="h2 text-xs-center" *ngIf="!isLoading && selectedBook && selectedChapter" [innerHtml]="chapterTitle"></p>
+      <div *ngIf="!isLoading && selectedBook && selectedChapter" [innerHtml]="bibleText"></div>
+      <div class="row">
+         <div class="col-xs-2 chap chap--prev" [routerLink]="['/notible', book, chapter - 1]">
+            <span class="fa fa-chevron-left"></span>
+         </div>
+         <div class="col-xs-8"></div>
+         <div class="col-xs-2 chap chap--next" [routerLink]="['/notible', book, chapter + 1]">
+            <span class="fa fa-chevron-right"></span>
+         </div>
       </div>
    </div>
 </div>

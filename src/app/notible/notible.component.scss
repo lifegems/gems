@@ -14,6 +14,10 @@
    padding-top: 5px;
 }
 
+.clearleft {
+   clear: left;
+}
+
 .chap {
    cursor: pointer;
    border: 1px solid lightgray;
@@ -43,6 +47,13 @@
    padding-top: 5px;
    background-color: white;
    z-index: -1;
+   &--desktop {
+      height: 100%;
+   }
+}
+
+.mgt {
+   margin-top: 30px;
 }
 
 .notes {
