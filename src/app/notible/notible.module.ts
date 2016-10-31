@@ -1,4 +1,6 @@
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
+
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CommonModule } from '@angular/common';
 import { NotibleComponent } from './notible.component';
@@ -12,7 +14,8 @@ import { NewNoteComponent } from './new-note/new-note.component';
   imports: [
     CommonModule,
     FormsModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    RouterModule
   ],
   declarations: [NotibleComponent, NotesComponent, NewNoteComponent],
   providers: [NotesService]

@@ -25,7 +25,7 @@
       </div>
 
       <div class="chapter--box">
-         <button type="button" class="btn btn-secondary chapter--btn col-xs-2" *ngFor="let chapter of chapters" [class.chapter--btn--active]="chapter === selectedChapter" (click)="showText(selectedBook, chapter)">{{ chapter }}</button>
+         <button type="button" class="btn btn-secondary chapter--btn col-xs-2" *ngFor="let chapter of chapters" [class.chapter--btn--active]="chapter === selectedChapter" [routerLink]="['/notible', book, chapter]">{{ chapter }}</button>
       </div>
 
    </div>

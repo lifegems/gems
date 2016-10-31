@@ -29,13 +29,18 @@ export class NotibleComponent implements OnInit {
    private isNavCollapsed: boolean = true;
 
    constructor(private bibleService: BibleService, private notesService: NotesService, private route: ActivatedRoute) {
-      route.params.subscribe((params) => {
-         this.book    = +params.book;
-         this.chapter = +params.chapter;
-      });
+      
    }
 
    ngOnInit() {
+      this.route.params.subscribe((params) => {
+         this.book    = +params['book'];
+         this.chapter = +params['chapter'];
+         this.loadPageText();
+      });
+   }
+
+   loadPageText() {
       this.isLoading = true;
       this.bibleService.listBooks().subscribe(
          (books) => {
