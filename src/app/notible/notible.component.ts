@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { BibleService } from './../shared/bible.service';
 import { NotesService } from './notes/notes.service';
 
@@ -10,6 +10,8 @@ var _ = require('underscore');
    styleUrls: ['./notible.component.scss']
 })
 export class NotibleComponent implements OnInit {
+   // @Input() book: number;
+
    private books = [];
    private chapters = [];
 
@@ -26,6 +28,8 @@ export class NotibleComponent implements OnInit {
    constructor(private bibleService: BibleService, private notesService: NotesService) { }
 
    ngOnInit() {
+      // console.log(this.book);
+
       this.isLoading = true;
       this.bibleService.listBooks().subscribe(
          (books) => {
@@ -67,7 +71,7 @@ export class NotibleComponent implements OnInit {
       this.bookName = book.standardName;
       this.selectedBook = book;
       this.isLoading = true;
-      let newChapters = this.getChapterArray(book.chapterCount)
+      let newChapters = this.getChapterArray(book.chapterCount);
       if (newChapters !== this.chapters) {
          this.chapters = newChapters;
       } else {

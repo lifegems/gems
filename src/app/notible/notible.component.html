@@ -57,7 +57,7 @@
          <span class="fa fa-close"></span>
       </div>
    </div>
-   <ngb-tabset>
+   <ngb-tabset *ngIf="selectedBook">
       <ngb-tab>
          <template ngbTabTitle>
             <span class="fa fa-paperclip"></span>
@@ -93,7 +93,7 @@
    </ngb-tabset>
 </div>
 <div class="col-md-3 hidden-md-down">
-   <ngb-tabset>
+   <ngb-tabset *ngIf="selectedBook">
       <ngb-tab>
          <template ngbTabTitle>
             <span class="fa fa-paperclip"></span>
