@@ -13,6 +13,22 @@
    clear: left;
 }
 
+.chap {
+   cursor: pointer;
+   border: 1px solid lightgray;
+   background-color: #eeeeee;
+   margin-bottom: 10px;
+
+   &--prev {
+      text-align: left;
+      padding: 5px 10px 5px 10px;
+   }
+   &--next {
+      text-align: right;
+      padding: 5px 10px 5px 10px;
+   }
+}
+
 .collapse--btn {
    margin-top: 10px;
 }
