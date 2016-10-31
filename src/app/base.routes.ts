@@ -21,7 +21,7 @@ const BaseRoutes: Routes = [
       component: GlossaryComponent
    },
    {
-      path: 'notible',
+      path: 'notible/:book/:chapter',
       component: NotibleComponent
    },
    {

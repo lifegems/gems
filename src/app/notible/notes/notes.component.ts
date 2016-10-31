@@ -27,7 +27,6 @@ export class NotesComponent implements OnInit {
 
    ngOnInit() {
       this.notes = _.filter(this.listTextNotes(), (note) => {
-         console.log(note.type);
          return note.type === this.type;
       });
       this.notesService.listNotes(this.book.chapterCount, this.chapter).subscribe((notes) => {

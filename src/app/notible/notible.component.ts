@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
 import { BibleService } from './../shared/bible.service';
 import { NotesService } from './notes/notes.service';
 
@@ -10,7 +12,8 @@ var _ = require('underscore');
    styleUrls: ['./notible.component.scss']
 })
 export class NotibleComponent implements OnInit {
-   // @Input() book: number;
+   private book: number;
+   private chapter: number;
 
    private books = [];
    private chapters = [];
@@ -25,19 +28,22 @@ export class NotibleComponent implements OnInit {
 
    private isNavCollapsed: boolean = true;
 
-   constructor(private bibleService: BibleService, private notesService: NotesService) { }
+   constructor(private bibleService: BibleService, private notesService: NotesService, private route: ActivatedRoute) {
+      route.params.subscribe((params) => {
+         this.book    = +params.book;
+         this.chapter = +params.chapter;
+      });
+   }
 
    ngOnInit() {
-      // console.log(this.book);
-
       this.isLoading = true;
       this.bibleService.listBooks().subscribe(
          (books) => {
             this.books = _.toArray(books.editionData.books);
-            this.selectedBook = this.books[0];
+            this.selectedBook = this.books[this.book - 1];
 
             this.chapters = this.getChapterArray(this.selectedBook.chapterCount);
-            this.selectedChapter = this.chapters[0];
+            this.selectedChapter = this.chapters[this.chapter - 1];
             this.showText(this.selectedBook, this.selectedChapter);
          },
          err => console.log(err)
