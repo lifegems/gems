@@ -20,7 +20,7 @@
       <div ngbDropdown>
          <button class="btn btn-outline-primary w-100" id="dropdownMenu1" ngbDropdownToggle>{{ bookName }}</button>
          <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-            <button class="dropdown-item" *ngFor="let book of books" (click)="showText(book, 1)">{{ book.standardName }}</button>
+            <button class="dropdown-item" *ngFor="let book of books; let i = index" [routerLink]="['/notible', i + 1, 1]">{{ book.standardName }}</button>
          </div>
       </div>
 
