@@ -11,6 +11,7 @@
 
 .reader--box {
    clear: left;
+   padding-top: 5px;
 }
 
 .chap {
@@ -38,8 +39,8 @@
 }
 
 .bible--nav {
-   border-bottom: 1px solid lightblue;
    padding: 5px;
+   padding-top: 5px;
    background-color: white;
    z-index: -1;
 }

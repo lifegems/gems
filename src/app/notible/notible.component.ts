@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { BibleService } from './../shared/bible.service';
 import { NotesService } from './notes/notes.service';
@@ -28,7 +28,7 @@ export class NotibleComponent implements OnInit {
 
    private isNavCollapsed: boolean = true;
 
-   constructor(private bibleService: BibleService, private notesService: NotesService, private route: ActivatedRoute) {
+   constructor(private bibleService: BibleService, private notesService: NotesService, private route: ActivatedRoute, private router: Router) {
       
    }
 
@@ -38,6 +38,10 @@ export class NotibleComponent implements OnInit {
          this.chapter = +params['chapter'];
          this.loadPageText();
       });
+   }
+
+   navigateReader(book, chapter) {
+      this.router.navigate(['/notible', book, chapter]);
    }
 
    loadPageText() {

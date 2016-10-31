@@ -1,19 +1,15 @@
 <!-- Bible Navigation -->
-<div class="hidden-lg-up pos-f-t navbar--separator bible--nav mx-auto">
-   <select>
-      <option>Genesis</option>
-      <option>Exodus</option>
-      <option>Leviticus</option>
-   </select>
-   <select>
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-      <option>6</option>
-   </select>
-   <button class="btn btn-secondary">Go</button>
+<div class="hidden-lg-up bible--nav mx-auto">
+   <div class="col-xs-6">
+      <select class="form-control" [(ngModel)]="selectedBook" (change)="loadPageText()">
+         <option *ngFor="let book of books" [value]="book">{{ book.standardName }}</option>
+      </select>
+   </div>
+   <div class="col-xs-6">
+      <select class="form-control" [(ngModel)]="chapter" (change)="loadPageText()">
+         <option *ngFor="let chapter of chapters; let i = index" [value]="chapter">{{ chapter }}</option>
+      </select>
+   </div>
 </div>
 <div class="col-md-3 hidden-md-down">
    <div class="form-group" [ngbCollapse]="isNavCollapsed">
@@ -35,23 +31,21 @@
 </div>
 
 <!-- Bible Reader -->
-<div class="col-md-6">
-   <div class="reader--box">
-      <p class="text-xs-center" *ngIf="isLoading">
-         <span class="fa fa-spinner fa-spin fa-4x"></span>
-         <br>
-         <span class="h3">Loading...</span>
-      </p>
-      <p class="h2 text-xs-center" *ngIf="!isLoading && selectedBook && selectedChapter" [innerHtml]="chapterTitle"></p>
-      <div *ngIf="!isLoading && selectedBook && selectedChapter" [innerHtml]="bibleText"></div>
-      <div class="row">
-         <div class="col-xs-2 chap chap--prev" [routerLink]="['/notible', book, chapter - 1]">
-            <span class="fa fa-chevron-left"></span>
-         </div>
-         <div class="col-xs-8"></div>
-         <div class="col-xs-2 chap chap--next" [routerLink]="['/notible', book, chapter + 1]">
-            <span class="fa fa-chevron-right"></span>
-         </div>
+<div class="col-md-6 reader--box">
+   <p class="text-xs-center" *ngIf="isLoading">
+      <span class="fa fa-spinner fa-spin fa-4x"></span>
+      <br>
+      <span class="h3">Loading...</span>
+   </p>
+   <p class="h2 text-xs-center" *ngIf="!isLoading && selectedBook && selectedChapter" [innerHtml]="chapterTitle"></p>
+   <div *ngIf="!isLoading && selectedBook && selectedChapter" [innerHtml]="bibleText"></div>
+   <div class="row">
+      <div class="col-xs-2 chap chap--prev" [routerLink]="['/notible', book, chapter - 1]">
+         <span class="fa fa-chevron-left"></span>
+      </div>
+      <div class="col-xs-8"></div>
+      <div class="col-xs-2 chap chap--next" [routerLink]="['/notible', book, chapter + 1]">
+         <span class="fa fa-chevron-right"></span>
       </div>
    </div>
 </div>
