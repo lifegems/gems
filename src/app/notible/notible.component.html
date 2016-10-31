@@ -1,8 +1,8 @@
 <!-- Bible Navigation -->
 <div class="hidden-lg-up bible--nav mx-auto">
    <div class="col-xs-6">
-      <select class="form-control" [(ngModel)]="selectedBook" (change)="loadPageText()">
-         <option *ngFor="let book of books" [value]="book">{{ book.standardName }}</option>
+      <select class="form-control" [(ngModel)]="book" (change)="loadPageText()">
+         <option *ngFor="let book of books; let i = index" [value]="i + 1">{{ book.standardName }}</option>
       </select>
    </div>
    <div class="col-xs-6">
@@ -13,13 +13,9 @@
 </div>
 <div class="col-md-3 bible--nav--desktop hidden-md-down">
    <div class="form-group">
-      <div ngbDropdown>
-         <button class="btn btn-outline-primary w-100" id="dropdownMenu1" ngbDropdownToggle>{{ bookName }}</button>
-         <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-            <button class="dropdown-item" *ngFor="let book of books; let i = index" [routerLink]="['/notible', i + 1, 1]">{{ book.standardName }}</button>
-         </div>
-      </div>
-
+      <select class="form-control" [(ngModel)]="book" (change)="loadPageText()">
+         <option *ngFor="let book of books; let i = index" [value]="i + 1">{{ book.standardName }}</option>
+      </select>
       <div class="chapter--box">
          <button type="button" class="btn btn-secondary chapter--btn col-xs-2" *ngFor="let chapter of chapters" [class.chapter--btn--active]="chapter === selectedChapter" [routerLink]="['/notible', book, chapter]">{{ chapter }}</button>
       </div>
