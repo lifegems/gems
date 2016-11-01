@@ -26,10 +26,10 @@ export class NotesComponent implements OnInit {
    }
 
    ngOnInit() {
-      this.notes = _.filter(this.listTextNotes(), (note) => {
-         return note.type === this.type;
-      });
-      this.notesService.listNotes(this.book.chapterCount, this.chapter).subscribe((notes) => {
+      // this.notes = _.filter(this.listTextNotes(), (note) => {
+      //    return note.type === this.type;
+      // });
+      this.notesService.listNotes(this.book.bookNumber, this.chapter).subscribe((notes) => {
             this.notes = _.filter(notes, (note) => {return note.type === this.type;});
          }, (err) => console.log(err)
       );

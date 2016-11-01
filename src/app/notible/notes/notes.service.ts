@@ -15,7 +15,9 @@ export class NotesService extends ApiService {
    }
 
    listNotes(booknumber, chapter): Observable<any> {
-      return this.http.get(this.URL + "notes/" + booknumber + "/" + chapter)
+      var GET_URL = this.URL + "notes/" + booknumber + "/" + chapter;
+      console.log(GET_URL);
+      return this.http.get(GET_URL)
          .map((res: Response) => res.json())
          .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
    }

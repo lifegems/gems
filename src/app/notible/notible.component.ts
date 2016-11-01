@@ -64,6 +64,7 @@ export class NotibleComponent implements OnInit {
          (books) => {
             this.books = _.toArray(books.editionData.books);
             this.selectedBook = this.books[this.book - 1];
+            this.selectedBook.bookNumber = this.book;
 
             this.chapters = this.getChapterArray(this.selectedBook.chapterCount);
             this.selectedChapter = this.chapters[this.chapter - 1];
