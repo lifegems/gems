@@ -45,6 +45,16 @@ export class NotibleComponent implements OnInit {
    }
 
    navigateReader(book, chapter) {
+      if (chapter > this.selectedBook.chapterCount) {
+         book++;
+         chapter = 1;
+      }
+      if (chapter === 0) {
+         book--;
+         chapter = this.books[book - 1].chapterCount;
+      }
+
+
       this.router.navigate(['/notible', book, chapter]);
    }
 
