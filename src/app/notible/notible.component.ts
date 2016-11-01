@@ -14,6 +14,7 @@ var _ = require('underscore');
 export class NotibleComponent implements OnInit {
    private book: number;
    private chapter: number;
+   private verseCount: number;
 
    private books = [];
    private chapters = [];
@@ -33,7 +34,6 @@ export class NotibleComponent implements OnInit {
       private notesService: NotesService,
       private route: ActivatedRoute,
       private router: Router) {
-      
    }
 
    ngOnInit() {
@@ -96,12 +96,18 @@ export class NotibleComponent implements OnInit {
       }
       this.selectedChapter = strChapter;
       var bookNumber = this.books.indexOf(book) + 1;
-      var strRange = this.bibleService.formatRange(bookNumber, parseInt(strChapter))
+      var strRange = this.bibleService.formatRange(bookNumber, parseInt(strChapter));
+
+
+
       this.bibleService.getBibleChapterText(bookNumber, parseInt(strChapter)).subscribe(
          (text) => {
             this.chapterTitle = text.ranges[strRange].citation;
             this.bibleText = text.ranges[strRange].html;
             this.isLoading = false;
+
+            var aRange = text.ranges[strRange].validRange.split("-");
+            this.verseCount = parseInt(aRange[1]) - parseInt(aRange[0]) + 1;
          },
          (err) => console.log(err)
       );
