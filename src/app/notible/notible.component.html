@@ -1,19 +1,19 @@
 <!-- Bible Navigation -->
 <div class="hidden-lg-up bible--nav mx-auto">
    <div class="col-xs-6">
-      <select class="form-control" [(ngModel)]="book" (change)="loadPageText()">
+      <select class="form-control" [(ngModel)]="book" (change)="navigateReader($event.target.value, 1)">
          <option *ngFor="let book of books; let i = index" [value]="i + 1">{{ book.standardName }}</option>
       </select>
    </div>
    <div class="col-xs-6">
-      <select class="form-control" [(ngModel)]="chapter" (change)="loadPageText()">
+      <select class="form-control" [(ngModel)]="chapter" (change)="navigateReader(book, $event.target.value)">
          <option *ngFor="let chapter of chapters; let i = index" [value]="chapter">{{ chapter }}</option>
       </select>
    </div>
 </div>
 <div class="col-md-3 bible--nav--desktop hidden-md-down">
    <div class="form-group">
-      <select class="form-control" [(ngModel)]="book" (change)="loadPageText()">
+      <select class="form-control" [(ngModel)]="book" (change)="navigateReader($event.target.value, 1)">
          <option *ngFor="let book of books; let i = index" [value]="i + 1">{{ book.standardName }}</option>
       </select>
       <div class="chapter--box">

@@ -28,7 +28,11 @@ export class NotibleComponent implements OnInit {
 
    private isNavCollapsed: boolean = true;
 
-   constructor(private bibleService: BibleService, private notesService: NotesService, private route: ActivatedRoute, private router: Router) {
+   constructor(
+      private bibleService: BibleService,
+      private notesService: NotesService,
+      private route: ActivatedRoute,
+      private router: Router) {
       
    }
 
@@ -68,18 +72,6 @@ export class NotibleComponent implements OnInit {
          i = i + 1;
       }
       return aChapters;
-   }
-
-   createNote(title, desc, href) {
-      let body = JSON.stringify({
-         name: title,
-         desc: desc,
-         href: href
-      });
-      this.notesService.addNote(body).subscribe(
-         terms => console.log(terms),
-         err => console.log(err)
-      );
    }
 
    showText(book, strChapter) {
