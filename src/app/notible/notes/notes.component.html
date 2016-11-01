@@ -18,7 +18,7 @@
    <div *ngSwitchCase="'XREFS'">
       <div *ngFor="let note of notes">
          <hr>
-         <h4>Joshua {{note.chapter}}:{{note.verse}}</h4>
+         <h4>{{book.standardName}} {{note.chapter}}:{{note.verse}}</h4>
          <div class="text-muted"><i>{{note.xtype}}</i></div>
          <div><b>{{note.title}}</b></div>
          <div>{{note.description}}</div>

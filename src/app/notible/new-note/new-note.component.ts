@@ -9,7 +9,7 @@ import { NotesService } from './../notes/notes.service';
    styleUrls: ['./new-note.component.css']
 })
 export class NewNoteComponent implements OnInit {
-   @Input() book: number;
+   @Input() book: any;
    @Input() chapter: number;
    @Input() verses: number;
 
@@ -40,9 +40,9 @@ export class NewNoteComponent implements OnInit {
 
    createNote() {
       let NewNote: Note = {
-         book:    this.book,
+         book:    this.book.bookNumber,
          chapter: this.chapter,
-         verse:   this.newNoteVerse,
+         verse:   +this.newNoteVerse,
          type:    this.newNoteType,
          title:   this.newNoteTitle,
          description: this.newNoteDesc
@@ -69,6 +69,19 @@ export class NewNoteComponent implements OnInit {
          terms => console.log(terms),
          err => console.log(err)
       );
+
+      this.resetForm();
+   }
+
+
+   resetForm() {
+      this.newNoteType = 'NOTES';
+      this.newNoteVerse = 1;
+      this.newNoteTitle = '';
+      this.newNoteDesc = '';
+      this.newNoteMediaUrl = '';
+      this.newNoteXType = 'GEN';
+      this.newNoteXRef = '';
    }
 
 

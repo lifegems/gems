@@ -24,7 +24,7 @@
 </div>
 
 <!-- Bible Reader -->
-<div class="col-md-6 mgt">
+<div class="col-md-6 mgt" *ngIf="!isNotesNavCollapsed">
    <div class="reader--box">
       <p class="text-xs-center" *ngIf="isLoading">
          <span class="fa fa-spinner fa-spin fa-4x"></span>
